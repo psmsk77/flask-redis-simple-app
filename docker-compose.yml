@@ -1,0 +1,15 @@
+services:
+  redis:
+    image: redis:7.2-alpine3.18
+    container_name: redis
+    ports:
+    - 6379:6379
+  flask:
+    build: .
+    # You can pull the image from Docker Hub
+    # image: psmsk77/flask-redis-simple
+    container_name: flask
+    ports:
+    - 8080:5000
+    depends_on:
+    - redis

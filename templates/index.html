@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+<form method="post" action="/">
+    <input type="hidden" name="method" value="ADD">
+    <p>To create a Key-Value pair enter values</p>
+    <table>
+        <tr>
+            <td><label for="keyField">Key</label></td>
+            <td><input id="keyField" type="text" name="key"></td>
+        </tr>
+        <tr>
+            <td><label for="valueField">Value</label></td>
+            <td><input id="valueField" type="text" name="value"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" value="ADD"></td>
+        </tr>
+    </table>
+</form>
+<p style="color:red"> {{ add_context }} </p>
+<br>
+<br>
+<br>
+<form method="post" action="/">
+    <input type="hidden" name="method" value="GET">
+    <p>To get the Value enter the Key</p>
+    <table>
+        <tr>
+            <td><label for="GETkeyField">Key</label></td>
+            <td><input id="GETkeyField" type="text" name="key"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" value="GET"></td>
+        </tr>
+    </table>
+</form>
+<p style="color:red"> {{ get_context }} </p>
+<br>
+<br>
+<br>
+<form method="POST" action="/">
+    <input type="hidden" name="method" value="UPDATE">
+    <p>To update a Key-Value pair enter new values</p>
+    <table>
+        <tr>
+            <td><label for="UPDkeyField">Key</label></td>
+            <td><input id="UPDkeyField" type="text" name="key"></td>
+        </tr>
+        <tr>
+            <td><label for="UPDvalueField">Value</label></td>
+            <td><input id="UPDvalueField" type="text" name="value"></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center"><input type="submit" value="UPDATE"></td>
+        </tr>
+    </table>
+</form>
+<p style="color:red"> {{ update_context }} </p>
+<br>
+<a> © 2023 psmsk77@gmail.com </a>
+</body>
+</html>
