@@ -1,3 +1,5 @@
+"""Module for processing requests"""
+
 from flask import Flask, request, render_template
 from redis import Redis
 
@@ -8,11 +10,13 @@ redis = Redis(host='redis', port=6379)
 
 @app.route("/", methods=['GET'])
 def main_form():
+    """Function for processing GET requests"""
     return render_template('index.html')
 
 
 @app.route("/", methods=['POST'])
 def post_form():
+    """Function for processing POST requests"""
     print('form: ', request.form)
     if request.form['method'] == 'ADD':
         if not request.form['key'] or not request.form['value']:
@@ -22,7 +26,7 @@ def post_form():
         redis.set(key, value)
         return render_template('index.html', add_context="The pair added successfully!")
 
-    elif request.form['method'] == 'GET':
+    if request.form['method'] == 'GET':
         key = request.form['key']
         response = redis.get(key)
         if not response:
@@ -30,7 +34,7 @@ def post_form():
         response = str(response, 'utf-8')
         return render_template('index.html', get_context=f"The value is {response}")
 
-    elif request.form['method'] == 'UPDATE':
+    if request.form['method'] == 'UPDATE':
         if not request.form['key'] or not request.form['value']:
             return render_template('index.html', update_context="You need enter key and value!")
         key = request.form['key']
@@ -38,12 +42,12 @@ def post_form():
         redis.set(key, value)
         return render_template('index.html', update_context="The pair updated successfully!")
 
-    else:
-        print("Unknown request method!")
+    # return print("Unknown request method!")
 
 
 @app.route("/", methods=['PUT'])
 def put_form():
+    """Function for processing PUT requests"""
     if not request.form['key'] or not request.form['value']:
         return render_template('index.html', update_context="You need enter key and value!")
     key = request.form['key']
