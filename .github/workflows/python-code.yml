@@ -28,12 +28,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install pylint flake8 pytest
-        if [ -f requirements.txt ]; then python -m pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Analysing the code with pylint
       run: |
-         --exit-zero Always return a 0 (non-error) status code, even if lint errors are found. 
-         This is primarily useful in continuous integration scripts. (default: False)
-         --max-returns Maximum number of return / yield for function / method body. (default: 6)
+        # --exit-zero Always return a 0 (non-error) status code, even if lint errors are found. 
+        # This is primarily useful in continuous integration scripts. (default: False)
+        # --max-returns Maximum number of return / yield for function / method body. (default: 6)
         pylint $(git ls-files '*.py') --max-returns 7
     - name: Lint with flake8
       run: |
@@ -43,3 +43,6 @@ jobs:
         # flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
         # My action
         flake8 . --max-complexity=10 --max-line-length=120
+    - name: Test with pytest
+      run: |
+        pytest
