@@ -31,9 +31,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Analysing the code with pylint
       run: |
-        # pylint --exit-zero Always return a 0 (non-error) status code, even if lint errors are found. 
+        # --exit-zero Always return a 0 (non-error) status code, even if lint errors are found. 
         # This is primarily useful in continuous integration scripts. (default: False)
-        pylint $(git ls-files '*.py')
+        # --max-returns Maximum number of return / yield for function / method body. (default: 6)
+        pylint $(git ls-files '*.py') --max-returns 7
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names

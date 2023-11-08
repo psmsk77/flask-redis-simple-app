@@ -42,7 +42,7 @@ def post_form():
         redis.set(key, value)
         return render_template('index.html', update_context="The pair updated successfully!")
 
-    # return print("Unknown request method!")
+    return print("Unknown request method!")
 
 
 @app.route("/", methods=['PUT'])
