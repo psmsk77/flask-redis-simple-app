@@ -1,6 +1,6 @@
 # Simple Web App in Flask and Redis
 
-[![Build Status](https://github.com/psmsk77/flask-redis-simple-app/actions/workflows/python-package.yml/badge.svg?branch=master)](https://github.com/psmsk77/flask-redis-simple-app/actions)
+[![Build Status](https://github.com/psmsk77/flask-redis-simple-app/actions/workflows/python-code.yml/badge.svg?branch=master)](https://github.com/psmsk77/flask-redis-simple-app/actions)
 [![Build Status](https://github.com/psmsk77/flask-redis-simple-app/actions/workflows/docker-image.yml/badge.svg?branch=master)](https://github.com/psmsk77/flask-redis-simple-app/actions)
 [![Build Status](https://github.com/psmsk77/flask-redis-simple-app/actions/workflows/docker-compose-ci.yml/badge.svg?branch=master)](https://github.com/psmsk77/flask-redis-simple-app/actions)
 
